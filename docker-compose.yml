@@ -14,7 +14,7 @@ services:
     tty: true
     env_file:
       - .env
-    command: /bin/sh -c "bundle exec rails server -b '0.0.0.0' --port '3000'"
+    command: /bin/sh -c "rm /usr/src/app/tmp/pids/server.pid; bundle exec rails server -b '0.0.0.0' --port '3000'"
     depends_on:
       - db
   db:
