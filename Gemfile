@@ -10,7 +10,7 @@ gem "graphiql-rails"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-# gem "sprockets-rails"
+gem "sprockets-rails"
 
 gem 'mysql2'
 
@@ -42,7 +42,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-# gem "bootsnap", require: false
+gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
