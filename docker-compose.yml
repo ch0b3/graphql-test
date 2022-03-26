@@ -1,0 +1,29 @@
+version: '3'
+volumes:
+  bundle:
+  mysql-store:
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/usr/src/app:delegated
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+    command: /bin/sh -c "rm /usr/src/app/tmp/pids/server.pid; bundle exec rails server -b '0.0.0.0' --port '3000'"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.6
+    platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+    volumes:
+      - mysql-store:/var/lib/mysql
+    ports:
+      - 3306:3306
