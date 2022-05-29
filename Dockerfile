@@ -7,6 +7,7 @@ ENV TZ=Asia/Tokyo
 WORKDIR /usr/src/app
 COPY Gemfile .
 COPY Gemfile.lock .
-RUN bundle install
+# RUN bundle install
+RUN bundle config set force_ruby_platform true
 
 CMD ["/bin/sh"]
