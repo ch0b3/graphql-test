@@ -7,10 +7,6 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :test_query, Types::TestType, null: false
-
-    def test_query
-      ''
-    end
+    field :test_query, resolver: Resolvers::TestResolver
   end
 end

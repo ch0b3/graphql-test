@@ -4,6 +4,7 @@ class GraphqlTestSchema < GraphQL::Schema
 
   # For batch-loading (see https://graphql-ruby.org/dataloader/overview.html)
   use GraphQL::Dataloader
+  disable_introspection_entry_points if Rails.env.production?
 
   # GraphQL-Ruby calls this when something goes wrong while running a query:
   def self.type_error(err, context)
