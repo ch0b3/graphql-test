@@ -6,8 +6,7 @@ module CustomValidators
       @with_pattern = /\A([a-zA-Z0-9]+)([a-zA-Z0-9\._\-\+]*)@([a-zA-Z0-9]+)([a-zA-Z0-9\._\-]+)\z/
       return unless super
 
-      error_object = GraphqlErrors::Error.new(code: Types::Enum::ErrorCodeType::INVALID_ARGUMENT_EMAIL_FORMAT)
-      context.add_error(GraphQL::ExecutionError.new(error_object.message, extensions: { code: error_object.code }))
+      context.add_error(GraphQL::ExecutionError.new('不正なメールアドレス形式です', extensions: { code: 'invalid_email_format' }))
     end
   end
 end
