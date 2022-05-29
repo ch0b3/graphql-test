@@ -21,3 +21,5 @@ module GraphqlTest
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+require Rails.root.join('app', 'graphql', 'custom_validators', 'installer')
